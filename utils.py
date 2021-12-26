@@ -79,3 +79,25 @@ def remove_stops(text: str) -> str:
             if word not in stopwords.words("english")
         ]
     )
+
+
+def remove_punctuations(text: str) -> str:
+    return text.translate(str.maketrans("", "", string.punctuation))
+
+
+def remove_digits(text: str) -> str:
+    return "".join([i for i in text if not i.isdigit()])
+
+
+def remove_double_whitespaces(text: str) -> str:
+    return re.sub(" +", " ", text)
+
+
+def remove_months(text: str) -> str:
+    months = [
+        "January", "February", "March", "April",
+        "May", "June", "July", "August",
+        "September", "October", "November", "December"
+    ]
+
+    return " ".join([word for word in text.split() if word not in months])
