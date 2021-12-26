@@ -101,3 +101,14 @@ def remove_months(text: str) -> str:
     ]
 
     return " ".join([word for word in text.split() if word not in months])
+
+
+def clean_text(text: str) -> str:
+    return pipe(
+        text,
+        remove_stops,
+        remove_punctuations,
+        remove_digits,
+        remove_double_whitespaces,
+        remove_months
+    )
