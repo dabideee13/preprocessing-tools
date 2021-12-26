@@ -1,7 +1,7 @@
 """
 Runtime: Python 3.9.7
 """
-from typing import Iterable
+from typing import Iterable, Any
 
 
 def get_indices(data: Iterable, search: str) -> Iterable:
@@ -54,14 +54,14 @@ def pipe(raw_input: Any, *functions, **functions_with_args) -> Any:
     return output
 
 
-def word_tokenize(text: str) -> List[str]:
+def word_tokenize(text: str) -> list[str]:
     """Converts a text (in string format) to a list of string.
 
     Args:
         text (str): Raw text format, usually having a '.txt' file extension.
 
     Returns:
-        List[str]: List of strings from the raw text.
+        list[str]: List of strings from the raw text.
     """
 
     first_pattern = r"[A-Za-z]{2,}"
