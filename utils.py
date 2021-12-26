@@ -70,3 +70,10 @@ def word_tokenize(text: str) -> list[str]:
     return re.findall(first_pattern, new_text)
 
 
+def remove_stops(text: str) -> str:
+    return " ".join(
+        [
+            word for word in text.split()
+            if word not in stopwords.words("english")
+        ]
+    )
