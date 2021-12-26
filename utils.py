@@ -3,6 +3,8 @@ Runtime: Python 3.9.7
 """
 from typing import Iterable, Any
 
+from nltk.corpus import stopwords
+
 
 def get_indices(data: Iterable, search: str) -> Iterable:
     indices = {}
