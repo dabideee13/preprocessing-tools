@@ -110,5 +110,6 @@ def clean_text(text: str) -> str:
         remove_punctuations,
         remove_digits,
         remove_double_whitespaces,
-        remove_months
+        remove_months,
+        str.strip
     )
