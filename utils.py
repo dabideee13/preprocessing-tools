@@ -1,7 +1,7 @@
 """
 Runtime: Python 3.9.7
 """
-from typing import Iterable, Any
+from typing import Iterable, Any, Callable
 
 from nltk.corpus import stopwords
 
@@ -113,3 +113,11 @@ def clean_text(text: str) -> str:
         remove_months,
         str.strip
     )
+
+
+def apply_df(df: pd.DataFrame, function: Callable) -> pd.DataFrame:
+    _df = df.copy(deep=True)
+    
+    for series in _df:
+        _df[series] = _df[series].apply(function)
+    return _df
