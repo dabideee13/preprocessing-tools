@@ -2,6 +2,8 @@
 Runtime: Python 3.9.7
 """
 from typing import Iterable, Any, Callable
+from itertools import groupby
+from operator import itemgetter
 
 from nltk.corpus import stopwords
 
@@ -121,3 +123,7 @@ def apply_df(df: pd.DataFrame, function: Callable) -> pd.DataFrame:
     for series in _df:
         _df[series] = _df[series].apply(function)
     return _df
+
+
+def extract_by_position(data: Iterable, position: int = 0) -> Iterable:
+    return [i for i, _ in groupby(data, itemgetter(position))]
