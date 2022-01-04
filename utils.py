@@ -2,7 +2,7 @@
 Runtime: Python 3.9.7
 """
 from typing import Iterable, Any, Callable
-from itertools import groupby
+from itertools import groupby, chain
 from operator import itemgetter
 
 from nltk.corpus import stopwords
@@ -127,3 +127,7 @@ def apply_df(df: pd.DataFrame, function: Callable) -> pd.DataFrame:
 
 def extract_by_pos(data: Iterable, position: int = 0) -> Iterable:
     return [i for i, _ in groupby(data, itemgetter(position))]
+
+
+def flatten_list(data: list[list[Any]]) -> list[Any]:
+    return list(chain(*data))
