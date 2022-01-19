@@ -131,3 +131,7 @@ def extract_by_pos(data: Iterable, position: int = 0) -> Iterable:
 
 def flatten_list(data: list[list[Any]]) -> list[Any]:
     return list(chain(*data))
+
+
+def find_duplicates(iterable: list[int]) -> list[int]:
+    return [x for i, x in enumerate(iterable) if i != iterable.index(x)]
