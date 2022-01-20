@@ -135,3 +135,8 @@ def flatten_list(data: list[list[Any]]) -> list[Any]:
 
 def find_duplicates(iterable: list[int]) -> list[int]:
     return [x for i, x in enumerate(iterable) if i != iterable.index(x)]
+
+
+def find_specific_words(specific_words: list[str], text: str) -> list[str]:
+    pattern = r"\W.*?({})\W.*?".format("|".join(specific_words))
+    return re.findall(pattern, text)
