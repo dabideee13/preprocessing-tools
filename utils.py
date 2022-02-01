@@ -140,3 +140,14 @@ def find_duplicates(iterable: list[int]) -> list[int]:
 def find_specific_words(specific_words: list[str], text: str) -> list[str]:
     pattern = r"\W.*?({})\W.*?".format("|".join(specific_words))
     return re.findall(pattern, text)
+
+
+def strip_empty(strings: list[str]) -> list[str]:
+    _strings = deepcopy(strings)
+
+    while _strings[0] == "":
+        _strings.pop(0)
+    while _strings[-1] == "":
+        _strings.pop(-1)
+
+    return _strings
