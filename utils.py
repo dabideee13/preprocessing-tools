@@ -151,3 +151,11 @@ def strip_empty(strings: list[str]) -> list[str]:
         _strings.pop(-1)
 
     return _strings
+
+
+def run_timer(seconds: Optional[int] = None, start: int = 2, end: int = 10) -> None:
+    if seconds is not None:
+        time.sleep(seconds)
+        return
+    
+    time.sleep(random.randint(start, end))
