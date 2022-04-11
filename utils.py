@@ -159,3 +159,11 @@ def run_timer(seconds: Optional[int] = None, start: int = 2, end: int = 10) -> N
         return
     
     time.sleep(random.randint(start, end))
+
+    
+def get_latest_data(dir_path: Union[str, Path], n_files: int = 3, suffix: str = '.csv') -> list[str]:
+    """
+    Get latest downloaded or created data in the current (or defined) directory.
+    """
+    files = glob.glob(str(dir_path) + f'/*{suffix}')
+    return sorted(files, key=os.path.getctime)[-n_files:]
